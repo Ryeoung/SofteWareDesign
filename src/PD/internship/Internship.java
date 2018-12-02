@@ -120,7 +120,6 @@ public class Internship implements java.io.Serializable {
 	public ArrayList<Notification> getNotifications() {
 		return notifications;
 	}
-	//疫꿸퀡�뮟 method
 	/*
 	public boolean requestToApply(Application application) {
 		boolean bool = true;
@@ -135,12 +134,12 @@ public class Internship implements java.io.Serializable {
 		boolean bool = true;
 		if(qual.getGrades4p5()<(float)3.0)
 		{
-			System.out.println("筌욑옙占쎌뜚占쎌쁽占쎈뻷占쎌벥 占쎈린占쎌젎占쎌뵠 占쎈퉸占쎈뼣 鈺곌퀗援뷂옙肉� �뜮袁る퉸 �겫占썼�곌퉲鍮�占쎈빍占쎈뼄. \n");
+			System.out.println("해당 학점이 기준에 비해 부족합니다. \n");
 			return false;
 		}
 		if(qual.getSemeter()<4)
 		{
-			System.out.println("筌욑옙占쎌뜚占쎌쁽占쎈뻷占쎌벥 占쎌뵠占쎈땾 占쎈린疫꿸퀗占� �겫占썼�곌퉲鍮�占쎈빍占쎈뼄. \n");
+			System.out.println("해당 학기가 기준에 비해 부족합니다. \n");
 			return false;
 		}
 		return bool;

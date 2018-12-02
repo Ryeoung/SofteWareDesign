@@ -22,7 +22,7 @@ public class Timer {
 	public InterestedInternshipList getInterestedInternshipList() {
 		return this.interestedInternshipList;
 	}
-	//±â´É method
+	//ê¸°ëŠ¥ method
 	public boolean deadlineCheck() {
 		boolean bool = true;
 		

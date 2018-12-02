@@ -12,7 +12,7 @@ public class Qualification implements java.io.Serializable {
 	private Applicant applicant;
 	private ArrayList<Major> majors;
 	private ArrayList<LanguageAblity> languageAblity; 
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public Qualification() {
 		
 	}

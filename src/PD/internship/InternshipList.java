@@ -9,16 +9,16 @@ import java.util.Iterator;
 import PD.user.*;
 
 public final class InternshipList implements java.io.Serializable{
-	private static final InternshipList INSTANCE = new InternshipList();//singleton °´Ã¼
+	private static final InternshipList INSTANCE = new InternshipList();//singleton ê°ì²´
 	private ArrayList<Internship> internships;
 	private ArrayList<Internship> searchedList;
 	
 	//set, get Internship
-	private InternshipList() {//»ı¼ºÀÚ
+	private InternshipList() {//ìƒì„±ì
 	      try {
 	            FileInputStream fileIn = new FileInputStream("internships.ser");
 	            ObjectInputStream in = new ObjectInputStream(fileIn);
-	            internships = (ArrayList<Internship>) in.readObject(); // À¯Àú¸®½ºÆ® °¡Á®¿À±â
+	            internships = (ArrayList<Internship>) in.readObject(); // ìœ ì €ë¦¬ìŠ¤íŠ¸ ê°€ì ¸ì˜¤ê¸°
 	            in.close();
 	            fileIn.close();
 	         } catch (IOException i) {
@@ -30,22 +30,22 @@ public final class InternshipList implements java.io.Serializable{
 	            return;
 	         }
 	}
-	public static InternshipList getInternshipList() {//°´Ã¼ ¹İÈ¯
+	public static InternshipList getInternshipList() {//ê°ì²´ ë°˜í™˜
 		return INSTANCE;
 	}
 
-	public void addInternship(Internship internship) {//¸¸¾à ±â°üÀÌ ÀÎÅÏ½±À» »õ·Î µî·ÏÇÏ¸é ¸®½ºÆ®¿¡ Ãß°¡ÇÑ´Ù.
+	public void addInternship(Internship internship) {//ë§Œì•½ ê¸°ê´€ì´ ì¸í„´ì‰½ì„ ìƒˆë¡œ ë“±ë¡í•˜ë©´ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•œë‹¤.
 		internships.add(internship);
 	}
 
-	public ArrayList<Internship> search(String[] searchOption) {//°Ë»ö Á¶°ÇÀ» ÅëÇØ °Ë»öÇÏ¸é °Ë»öµÈ ¸ñ·ÏÀ» ¹İÈ¯
-		Internship temp;//°Ë»ö °á°ú¸¦ ÀúÀåÇÒ º¯¼ö
-		searchedList = new ArrayList<Internship>();//°Ë»öµÈ ¸ñ·ÏÀ» ÀúÀåÇÒ List
-		Iterator<Internship> it = internships.iterator();//¸ğµç ÀÎÅÏ½±ÀÌ ÀúÀåµÈ internships¿¡¼­ °Ë»öÇÑ´Ù. 
-		//searchOption[0]Àº nation, [1]Àº job, [2]´Â organization
+	public ArrayList<Internship> search(String[] searchOption) {//ê²€ìƒ‰ ì¡°ê±´ì„ í†µí•´ ê²€ìƒ‰í•˜ë©´ ê²€ìƒ‰ëœ ëª©ë¡ì„ ë°˜í™˜
+		Internship temp;//ê²€ìƒ‰ ê²°ê³¼ë¥¼ ì €ì¥í•  ë³€ìˆ˜
+		searchedList = new ArrayList<Internship>();//ê²€ìƒ‰ëœ ëª©ë¡ì„ ì €ì¥í•  List
+		Iterator<Internship> it = internships.iterator();//ëª¨ë“  ì¸í„´ì‰½ì´ ì €ì¥ëœ internshipsì—ì„œ ê²€ìƒ‰í•œë‹¤. 
+		//searchOption[0]ì€ nation, [1]ì€ job, [2]ëŠ” organization
 		if(searchOption[0].equals("x")) {
 			if(searchOption[1].equals("x")) {
-				if(searchOption[2].equals("x")) {//3°³´Ù °Ë»ö¾ÈÇÏ¸é null return
+				if(searchOption[2].equals("x")) {//3ê°œë‹¤ ê²€ìƒ‰ì•ˆí•˜ë©´ null return
 					return null;
 				}
 				while(it.hasNext()) {//[2]
@@ -57,7 +57,7 @@ public final class InternshipList implements java.io.Serializable{
 			}
 			else {
 				if(searchOption[2].equals("x")) {//[1]
-					while(it.hasNext()) {//organization¸¸ °Ë»ö
+					while(it.hasNext()) {//organizationë§Œ ê²€ìƒ‰
 						temp = it.next();
 						if(temp.getJob().equals(searchOption[1])) {
 							searchedList.add(temp);
@@ -65,7 +65,7 @@ public final class InternshipList implements java.io.Serializable{
 					}
 				}
 				else {//[1][2]
-					while(it.hasNext()) {//organization¸¸ °Ë»ö
+					while(it.hasNext()) {//organizationë§Œ ê²€ìƒ‰
 						temp = it.next();
 						if(temp.getJob().equals(searchOption[1]) && temp.getOrganization().getName().equals(searchOption[2])) {
 							searchedList.add(temp);
@@ -77,7 +77,7 @@ public final class InternshipList implements java.io.Serializable{
 		else {
 			if(searchOption[1].equals("x")) {
 				if(searchOption[2].equals("x")) {//[0]
-					while(it.hasNext()) {//organization¸¸ °Ë»ö
+					while(it.hasNext()) {//organizationë§Œ ê²€ìƒ‰
 						temp = it.next();
 						if(temp.getOrganization().getNation().equals(searchOption[0])) {
 							searchedList.add(temp);
@@ -85,7 +85,7 @@ public final class InternshipList implements java.io.Serializable{
 					}
 				}
 				else {//[0][2]
-					while(it.hasNext()) {//organization¸¸ °Ë»ö
+					while(it.hasNext()) {//organizationë§Œ ê²€ìƒ‰
 						temp = it.next();
 						if(temp.getOrganization().getNation().equals(searchOption[0]) && temp.getOrganization().getName().equals(searchOption[2])) {
 							searchedList.add(temp);
@@ -95,7 +95,7 @@ public final class InternshipList implements java.io.Serializable{
 			}
 			else {
 				if(searchOption[2].equals("x")) {//[0][1]
-					while(it.hasNext()) {//organization¸¸ °Ë»ö
+					while(it.hasNext()) {//organizationë§Œ ê²€ìƒ‰
 						temp = it.next();
 						if(temp.getOrganization().getNation().equals(searchOption[0]) && temp.getJob().equals(searchOption[1])) {
 							searchedList.add(temp);
@@ -103,7 +103,7 @@ public final class InternshipList implements java.io.Serializable{
 					}
 				}
 				else {//[0][1][2]
-					while(it.hasNext()) {//organization¸¸ °Ë»ö
+					while(it.hasNext()) {//organizationë§Œ ê²€ìƒ‰
 						temp = it.next();
 						if(temp.getOrganization().getNation().equals(searchOption[0]) && temp.getJob().equals(searchOption[1]) &&temp.getOrganization().getName().equals(searchOption[2])) {
 							searchedList.add(temp);

@@ -31,22 +31,22 @@ public class ApplyUI {
 		Resume resume=new Resume();
 		
 		Qualification qual=user.getQualification();
-		checkQual=this.internship.checkQualification(qual);// ÇØ´ç Áö¿ø Á¶°ÇÀ» È®ÀÎÇÑ´Ù.
+		checkQual=this.internship.checkQualification(qual);// í•´ë‹¹ ì§€ì› ì¡°ê±´ì„ í™•ì¸í•œë‹¤.
 		if(checkQual == false)
-			return false;// Áö¿ø Á¶°ÇÀÌ ¸¸Á· ¸øÇÏ¸é ¤Ğ¤Ğ
+			return false;// ì§€ì› ì¡°ê±´ì´ ë§Œì¡± ëª»í•˜ë©´ ã… ã… 
 		
 		Application app=new Application();
 		
-		resume.setFilename(filepath);//ÆÄÀÏ °æ·Î µî·Ï
+		resume.setFilename(filepath);//íŒŒì¼ ê²½ë¡œ ë“±ë¡
 		
-		app.setResume(resume);//resume¸¦ application¿¡ µî·Ï
-		resume.setApplication(app);//applicationÀ» resume¿¡ µî·Ï
+		app.setResume(resume);//resumeë¥¼ applicationì— ë“±ë¡
+		resume.setApplication(app);//applicationì„ resumeì— ë“±ë¡
 		
-		if(!app.saveFile())//ÆÄÀÏ ÀúÀåÀÌ Á¦´ë·Î µÇÁö ¾ÊÀ¸¸é 
+		if(!app.saveFile())//íŒŒì¼ ì €ì¥ì´ ì œëŒ€ë¡œ ë˜ì§€ ì•Šìœ¼ë©´ 
 			return false;
 		
-		this.user.addApplications(app);//Áö¿øÀÚ¿¡°Ô applicationÀ» Ãß°¡ÇÏ°í
-		this.internship.addApplications(app);//ÀÎÅÏ½±¿¡µµ applicationÀ» Ãß°¡ÇÏ¿´´Ù.
+		this.user.addApplications(app);//ì§€ì›ìì—ê²Œ applicationì„ ì¶”ê°€í•˜ê³ 
+		this.internship.addApplications(app);//ì¸í„´ì‰½ì—ë„ applicationì„ ì¶”ê°€í•˜ì˜€ë‹¤.
 		
 		
 		return true;

@@ -7,7 +7,7 @@ import PD.internship.*;
 import PD.user.*;
 
 public class InternshipUI {
-	private User user;//ÇöÀç µé¾î¿Â user
+	private User user;//í˜„ì¬ ë“¤ì–´ì˜¨ user
 	private Internship internship;
 	private InternshipList internships=null;
 	
@@ -28,9 +28,9 @@ public class InternshipUI {
 	}
 
 	public void registration(Internship input) {
-		//1)ÀÎÅÏ½± ¸¸µé µ¥ÀÌÅÍ°¡ ÀúÀåµÈ Internship °´Ã¼ inputÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Ş¾Æ¿À°í
-		//2) inputÀ» IntershipList¿¡ Ãß°¡
-		//¿©±â¼­ 
+		//1)ì¸í„´ì‰½ ë§Œë“¤ ë°ì´í„°ê°€ ì €ì¥ëœ Internship ê°ì²´ inputì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ì•„ì˜¤ê³ 
+		//2) inputì„ IntershipListì— ì¶”ê°€
+		//ì—¬ê¸°ì„œ 
 		this.internships=Internships.getInternshipList();
 		this.internships.addInternshipList(input);
 	}

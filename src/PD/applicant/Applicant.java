@@ -19,9 +19,9 @@ public class Applicant extends User implements java.io.Serializable {
 	private String studentID;
 	private DocumentCheckList documentCheckList;
 	private Qualification qualification;
-	private ArrayList<Application> applications;
+	private ArrayList<Application> applications=null;
 	private InterestedInternshipList interestedInternshipList;
-	private ArrayList<Notification> notifications;
+	private ArrayList<Notification> notifications=null;
 
 	public Applicant() {
 		super();
@@ -44,6 +44,7 @@ public class Applicant extends User implements java.io.Serializable {
 	public void setQualification(Qualification qualification) {
 		this.qualification = qualification;
 	}
+    @Override
 	public Qualification getQualification() {
 		return this.qualification;
 	}
@@ -54,6 +55,7 @@ public class Applicant extends User implements java.io.Serializable {
 		else
 			this.applications.add(application);
 	}
+    @Override
 	public ArrayList<Application> getApplications(){
 		return this.applications;
 	}
@@ -67,6 +69,8 @@ public class Applicant extends User implements java.io.Serializable {
 			interestedInternshipList.addInternship(internship);
 		}
 	}
+    
+    @Override
 	public InterestedInternshipList getInterestedInternshipList() {
 		return this.interestedInternshipList;
 	}
@@ -83,15 +87,14 @@ public class Applicant extends User implements java.io.Serializable {
 	}
 	
 	public void addToApplication(Application application) {
-		
+		if(this.applications==null)
+            this.applications=new ArrayList<Application>();
+        tihs.applications.add(application);
 	}
 	
 	public void addToInterestedInternshipList(Internship internship) {
-		
-	}
-	
-	public void requestQualification() {
-		
+		this.interestedInternshipList.addInternship(internship);
+        
 	}
 	
 	public boolean checkQualification() {

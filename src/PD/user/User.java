@@ -1,12 +1,16 @@
 package user;
-
+import PD.internship.InterestedInternshipList;
+import java.util.ArrayList;
+import PD.applicant.Qualification;
+import PD.apply.Application;
+    
 public class User implements java.io.Serializable {
 	private String id;
 	private String passwd;
 	private String name;
 	private Boolean gender;//True-male False-female
 	private String address;
-	private String contact;//ø¨∂Ù√≥
+	private String contact;//Ïó∞ÎùΩÏ≤ò
 	
 	public User() {
 	}
@@ -59,5 +63,14 @@ public class User implements java.io.Serializable {
 	}
 	public String getContact() {
 		return contact;
+	}
+    public InterestedInternshipList getInterestedInternshipList() {
+		return null;
+    }
+	public ArrayList<Application> getApplications(){
+		return null;
+	}
+    public Qualification getQualification() {
+		return null;
 	}
 }
